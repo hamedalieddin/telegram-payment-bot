@@ -5,6 +5,7 @@ import logging
 import os
 import openpyxl
 from datetime import datetime
+from queue import Queue
 
 # تنظیمات
 TOKEN = "7265240527:AAEQwHkTYRidmH6-_MLdIuLgg0izdSbQAgw"
@@ -105,7 +106,9 @@ def report(update, context):
         update.message.reply_text("⛔ فقط ادمین به این دستور دسترسی دارد.")
 
 # تعریف دیسپچر برای هندل کردن پیام‌ها
-dispatcher = Dispatcher(bot, None, use_context=True)
+update_queue = Queue()
+dispatcher = Dispatcher(bot, update_queue, use_context=True)
+
 conv_handler = ConversationHandler(
     entry_points=[CommandHandler("start", start)],
     states={
