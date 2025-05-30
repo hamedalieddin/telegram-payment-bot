@@ -2,4 +2,5 @@ pytz
 apscheduler
 jdatetime
 openpyxl
-telegram
+python-telegram-bot==20.7
+
