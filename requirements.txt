@@ -1,0 +1,5 @@
+pytz
+apscheduler
+jdatetime
+openpyxl
+telegram
